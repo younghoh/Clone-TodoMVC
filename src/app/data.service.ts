@@ -13,20 +13,19 @@ export class DataService {
   constructor() { }
 
   submit(text: string) {
-    this.dataArr.push({
-      text: text,
-      isChecked: false
-    });
+    this.dataArr = [...this.dataArr, {text, isChecked: false}];
     this.changedState.emit();
   }
 
   onChecked(item: Item) {
     this.checked(item);
+    this.changedState.emit();
   }
 
   checked(item: Item) {
-    item.isChecked = !item.isChecked;
-    this.changedState.emit();
+    this.dataArr = this.dataArr.map((data) => {
+      return data === item ? {...data, isChecked: !data.isChecked} : data;
+    });
   }
 
 
