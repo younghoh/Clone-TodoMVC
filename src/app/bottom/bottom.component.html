@@ -5,7 +5,7 @@
   <div class="center">
     <ul>
       <li *ngFor="let tab of tabs" 
-          [class.active]="tab === activatedTab" 
+          routerLinkActive="active" 
           (click)="onSelectTab(tab)"
           routerLink="/{{ tab | lowercase }}">{{ tab }}</li>
     </ul>
