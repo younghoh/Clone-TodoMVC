@@ -1,0 +1,29 @@
+ul, li {
+    display: inline-block;
+}
+
+li {
+    margin: 0 5px;
+}
+
+.container {
+    display: relative;
+}
+
+.left, .center, .right {
+    display: inline-block;
+}
+
+.left, .right{
+    width: 20%;
+}
+
+.center {
+    width: 60%;
+}
+
+.active {
+    border: 1px solid rgba(175, 47, 47, 0.2);
+    border-radius: 3px;
+    padding: 2px;
+}
