@@ -1,6 +1,10 @@
-.container {
+.out {
     margin: 0 auto;
     width: 500px;
+}
+
+.container {
+    box-shadow: 0px 5px 32px -1px #C6C6C6;
 }
 
 .title h1 {
