@@ -1,4 +1,10 @@
-<li>
+<li (dblclick)="onDoubleClick()">
   <input type="checkbox" name="" id="" [checked]="data.isChecked" (click)="onChecked(data)">
-  <span>{{ data.text }}</span>
+  <div *ngIf="!isDblClicked else elseBlock">
+    <span>{{ data.text }}</span>
+    <span class="removeBtn" (click)="onRemove(data)"></span>
+  </div>
+  <ng-template #elseBlock>
+    <input #modifyInput type="text" [(ngModel)]="data.text" (blur)="toggleInput()">
+  </ng-template>
 </li>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { Item } from '../item';
 
@@ -9,6 +9,8 @@ import { Item } from '../item';
 })
 export class ItemComponent implements OnInit {
   @Input() data;
+  @ViewChild('modifyInput') input: ElementRef;
+  isDblClicked: boolean = false;
   
   constructor(
     private dataService: DataService,
@@ -22,4 +24,23 @@ export class ItemComponent implements OnInit {
     this.dataService.onChecked(item);
   }
 
+  onDoubleClick() {
+    this.toggleInput();
+    this.focusInput();
+  }
+
+  toggleInput() {
+    this.isDblClicked = !this.isDblClicked;
+  }
+
+  // Angular change detection before focus
+  focusInput() {
+    setTimeout(() => {
+      this.input.nativeElement.focus();
+    }, 0);
+  }
+
+  onRemove(item: Item) {
+    this.dataService.onRemove(item);
+  }
 }

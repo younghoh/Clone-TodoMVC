@@ -49,10 +49,24 @@ export class DataService {
   }
 
   allCheck(checked: boolean) {
-    this.dataArr.forEach(( item: Item ) => {
-      item.isChecked = checked;
+    // this.dataArr.forEach(( item: Item ) => {
+    //   item.isChecked = checked;
+    // });
+    this.dataArr = this.dataArr.map((item) => {
+      return {...item, isChecked: checked}
     });
     this.changedState.emit();
+  }
+
+  onRemove(item: Item){
+    this.remove(item);
+    this.changedState.emit();
+  }
+
+  remove(item: Item){
+    this.dataArr = this.dataArr.filter((data: Item) => {
+      return data !== item;
+    });
   }
 
 }
