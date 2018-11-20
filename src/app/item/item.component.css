@@ -19,8 +19,49 @@ li:hover .removeBtn {
 
 li {
     position: relative;
+    border-bottom: 1px solid #ededed;
+    padding: 16px 16px 16px 60px;
 }
 
 div {
     display: inline-block;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    position: absolute;
+    display: inline-block;
+    border: 1px solid #ededed;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+label::after {
+    position: absolute;
+    content: '';
+    border: 1px solid #fff;
+    border-top: none;
+    border-right: none;
+    height: 5px;
+    width: 12px;
+    transform: rotate(-45deg);
+    top: 7px;
+    left: 4px;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #66bb6a;
+    border-color: #66bb6a;
+}
+
+input[type="text"] {
+    width: 100%;
+    border: none;
 }

@@ -1,5 +1,6 @@
 <li (dblclick)="onDoubleClick()">
-  <input type="checkbox" name="" id="" [checked]="data.isChecked" (click)="onChecked(data)">
+  <input type="checkbox" id="checkbox" [checked]="data.isChecked" >
+  <label for="checkbox" (click)="onChecked(data)"></label>
   <div *ngIf="!isDblClicked else elseBlock">
     <span>{{ data.text }}</span>
     <span class="removeBtn" (click)="onRemove(data)"></span>
