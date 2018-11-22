@@ -5,16 +5,17 @@
 .removeBtn {
     position: absolute;
     display: none;
-    top: 0;
-    right: 5px;
+    top: 15px;
+    right: 14px;
 }
 
 .removeBtn:hover {
-    color: red;
+    color: #af5b5e;
 }
 
 li:hover .removeBtn {
     display: block;
+    color: #cc9a9a;
 }
 
 li {
@@ -65,3 +66,14 @@ input[type="text"] {
     width: 100%;
     border: none;
 }
+
+.todoText {
+    transition: all 1s;
+}
+
+.todoText.completed {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+

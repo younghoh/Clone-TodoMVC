@@ -1,8 +1,8 @@
-<li (dblclick)="onDoubleClick()">
+<li (dblclick)="onDoubleClick()" >
   <input type="checkbox" id="checkbox" [checked]="data.isChecked" >
   <label for="checkbox" (click)="onChecked(data)"></label>
   <div *ngIf="!isDblClicked else elseBlock">
-    <span>{{ data.text }}</span>
+    <span class="todoText" [class.completed]="data.isChecked">{{ data.text }}</span>
     <span class="removeBtn" (click)="onRemove(data)"></span>
   </div>
   <ng-template #elseBlock>
