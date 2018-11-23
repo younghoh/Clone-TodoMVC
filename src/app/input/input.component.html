@@ -1,4 +1,4 @@
 <div class="input-container">
-    <span class="input-check" (click)="onAllChecked()"></span>
+    <span *ngIf="dataService.dataArr.length" class="input-check" (click)="onAllChecked()" [class.active]="!dataService.getLeftedItems().length"></span>
     <input type="text" placeholder="What needs to be done?" autofocus #input (keyup.enter)="onSubmit($event)">
 </div>

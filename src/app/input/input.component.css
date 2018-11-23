@@ -7,6 +7,7 @@
     color: #e6e6e6;
     font-size: 22px;
     padding: 10px 27px;
+    transition: all 1s;
 }
 
 .input-check {
@@ -31,4 +32,8 @@ input::placeholder {
 .input-container {
     position: relative;
     background-color: white;
+}
+
+.active.input-check::before {
+    color: black;
 }

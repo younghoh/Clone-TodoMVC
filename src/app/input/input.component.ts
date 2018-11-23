@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 export class InputComponent implements OnInit {
 
   constructor(
-    private dataService: DataService,
+    public dataService: DataService,
   ) { }
 
   ngOnInit() {
