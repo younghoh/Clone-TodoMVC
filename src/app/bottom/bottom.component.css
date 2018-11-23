@@ -1,25 +1,42 @@
-ul, li {
-    display: inline-block;
+.container {
+    position: relative;
+    background-color: white;
+    padding: 10px;
+    height: 20px;
+}
+
+.left-item {
+    float: left;
+}
+
+.clear {
+    border: none;
+    outline: none;
+    float: right;
+    position: relative;
+}
+
+.clear:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+
 }
 
 li {
-    margin: 0 5px;
-}
-
-.container {
-    display: relative;
-}
-
-.left, .center, .right {
-    display: inline-block;
-}
-
-.left, .right{
-    width: 20%;
-}
-
-.center {
-    width: 60%;
+    display: inline;
+    border: 1px solid transparent;
+    padding: 3px 7px;
+    outline: none;
 }
 
 .active {
@@ -27,3 +44,8 @@ li {
     border-radius: 3px;
     padding: 2px;
 }
+
+li:not(.active):hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+

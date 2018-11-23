@@ -1,16 +1,10 @@
 <div class="container" *ngIf="dataService.dataArr.length">
-  <div class="left">
-    <span class="left-item">{{ leftedItemsCount }} item left</span>
-  </div>
-  <div class="center">
-    <ul>
-      <li *ngFor="let tab of tabs" 
-          routerLinkActive="active" 
-          (click)="onSelectTab(tab)"
-          routerLink="/{{ tab | lowercase }}">{{ tab }}</li>
-    </ul>
-  </div>
-  <div class="right">
-    <span class="clear" *ngIf="isExistCompleted" (click)="onClear()">Clear Completed</span>
-  </div>
+  <span class="left-item">{{ leftedItemsCount }} item left</span>
+  <ul>
+    <li *ngFor="let tab of tabs" 
+        routerLinkActive="active" 
+        (click)="onSelectTab(tab)"
+        routerLink="/{{ tab | lowercase }}">{{ tab }}</li>
+  </ul>
+  <button class="clear" *ngIf="isExistCompleted" (click)="onClear()">Clear Completed</button>
 </div>
