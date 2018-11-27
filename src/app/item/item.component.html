@@ -6,6 +6,6 @@
     <span class="removeBtn" (click)="onRemove(data)"></span>
   </div>
   <ng-template #elseBlock>
-    <input #modifyInput type="text" [(ngModel)]="data.text" (blur)="toggleInput()">
+    <input #modifyInput type="text" [(ngModel)]="data.text" (blur)="toggleInput()" (keyup.enter)="$event.target.blur()">
   </ng-template>
 </li>

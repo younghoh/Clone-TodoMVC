@@ -64,11 +64,14 @@ input[type="checkbox"]:checked + label {
 
 input[type="text"] {
     width: 100%;
+    height: 100%;
     border: none;
+    font-size: 20px;
 }
 
 .todoText {
     transition: all 1s;
+    word-break: break-all;
 }
 
 .todoText.completed {

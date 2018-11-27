@@ -30,7 +30,9 @@ export class ItemComponent implements OnInit {
   }
 
   toggleInput() {
-    this.isDblClicked = !this.isDblClicked;
+    setTimeout(() => {
+      this.isDblClicked = !this.isDblClicked;
+    });
   }
 
   // Angular change detection before focus
