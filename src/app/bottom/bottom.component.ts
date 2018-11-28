@@ -21,6 +21,7 @@ export class BottomComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.refreshState(); // initialize
     this.dataService.changedState.subscribe(() => {
       this.refreshState();
     })
