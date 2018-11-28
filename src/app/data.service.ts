@@ -6,8 +6,6 @@ import { Item } from './item';
 })
 export class DataService {
   dataArr: Item[] = [];
-  completedArr: Item[] = [];
-  checkedArr: Item[] = [];
   changedState: EventEmitter<any> = new EventEmitter<any>();
   LOCAL_STORAGE_KEY: string = 'angular-todos';
 
@@ -16,8 +14,7 @@ export class DataService {
   }
 
   getItemFromLocalStorage() {
-    console.log(JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)));
-    return JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
+    return JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) as Item[];
   }
 
   updateLocalStorage() {
@@ -64,9 +61,6 @@ export class DataService {
   }
 
   allCheck(checked: boolean) {
-    // this.dataArr.forEach(( item: Item ) => {
-    //   item.isChecked = checked;
-    // });
     this.dataArr = this.dataArr.map((item) => {
       return {...item, isChecked: checked}
     });
