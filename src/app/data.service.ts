@@ -9,16 +9,30 @@ export class DataService {
   completedArr: Item[] = [];
   checkedArr: Item[] = [];
   changedState: EventEmitter<any> = new EventEmitter<any>();
+  LOCAL_STORAGE_KEY: string = 'angular-todos';
 
-  constructor() { }
+  constructor() { 
+    this.dataArr = this.getItemFromLocalStorage() ? this.getItemFromLocalStorage() : [];
+  }
+
+  getItemFromLocalStorage() {
+    console.log(JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)));
+    return JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
+  }
+
+  updateLocalStorage() {
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.dataArr));
+  }
 
   submit(text: string) {
     this.dataArr = [...this.dataArr, {text, isChecked: false}];
+    this.updateLocalStorage();
     this.changedState.emit();
   }
 
   onChecked(item: Item) {
     this.checked(item);
+    this.updateLocalStorage();
     this.changedState.emit();
   }
 
@@ -35,6 +49,7 @@ export class DataService {
 
   onClear(){
     this.clear();
+    this.updateLocalStorage();
     this.changedState.emit();
   }
 
@@ -55,11 +70,13 @@ export class DataService {
     this.dataArr = this.dataArr.map((item) => {
       return {...item, isChecked: checked}
     });
+    this.updateLocalStorage();
     this.changedState.emit();
   }
 
   onRemove(item: Item){
     this.remove(item);
+    this.updateLocalStorage();
     this.changedState.emit();
   }
 
